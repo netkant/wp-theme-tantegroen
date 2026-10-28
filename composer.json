@@ -1,0 +1,45 @@
+{
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "description": "Custom WordPress theme for Tante Groen.",
+    "version": "1.0.0",
+    "name": "netkant/wp-theme-tantegroen",
+    "authors": [
+        {
+            "name": "Netkant",
+            "homepage": "https://github.com/netkant"
+        }
+    ],
+    "require": {
+        "urlund/wordpress-updater": "dev-main",
+        "urlund/wordpress-feature": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "TanteGroen\\": "src/"
+        }
+    },
+    "extra": {
+        "wordpress-updater": {
+            "type": "theme",
+            "stylesheet": "style.css",
+            "slug": "tantegroen",
+            "repo": "netkant/wp-theme-tantegroen",
+            "tested": "6.7",
+            "output_dir": "dist",
+            "screenshot_url": "https://raw.githubusercontent.com/netkant/wp-theme-tantegroen/main/screenshot.png"
+        }
+    },
+    "require-dev": {
+        "php-stubs/wordpress-stubs": "^7.1",
+        "php-stubs/woocommerce-stubs": "^11.1",
+        "php-stubs/acf-pro-stubs": "^6.8"
+    },
+    "scripts": {
+        "wp-json": "wp-json",
+        "wp-zip": "wp-zip",
+        "wp-publish": "wp-publish",
+        "wp-version": "wp-version",
+        "wp-release": "wp-release"
+    }
+}
