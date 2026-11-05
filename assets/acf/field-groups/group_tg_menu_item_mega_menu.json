@@ -1,0 +1,57 @@
+{
+    "key": "group_tg_menu_item_mega_menu",
+    "title": "Menupunkt: Mega menu",
+    "fields": [
+        {
+            "key": "field_tg_menu_item_mega_menu",
+            "label": "Mega menu",
+            "name": "mega_menu",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Vises ved hover på punkter i øverste niveau af hovedmenuen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "tg_mega_menu"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "location/primary"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Tilknytter en mega menu til et punkt i hovedmenuen.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793881200
+}

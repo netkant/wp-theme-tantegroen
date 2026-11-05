@@ -1,6 +1,10 @@
 @use '../abstracts' as *;
 
 .navbar {
+    &__bar {
+        position: relative;
+    }
+
     &__inner {
         display: flex;
         align-items: center;

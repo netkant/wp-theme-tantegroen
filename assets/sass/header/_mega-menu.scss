@@ -1,0 +1,196 @@
+@use '../abstracts' as *;
+
+// The sidebar takes one track and the panel four, so image cards share the
+// sidebar width whether a tab has product lists or not.
+$mega-menu-tracks: 4;
+
+%mega-menu-link {
+    color: inherit;
+    font-size: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        color: inherit;
+        text-decoration: underline;
+    }
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--wp--custom--color--header-bg);
+    color: var(--wp--custom--color--header-text);
+    font-family: var(--wp--custom--typography--body);
+    font-size: var(--wp--preset--font-size--x-small);
+    line-height: 1.5;
+    text-align: left;
+
+    @include mq($bp-lg) {
+        display: block;
+    }
+
+    &[hidden] {
+        display: none;
+    }
+
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat($mega-menu-tracks + 1, minmax(0, 1fr));
+        gap: var(--wp--preset--spacing--md);
+        padding-block: var(--wp--preset--spacing--lg);
+        border-top: 1px solid var(--wp--custom--color--header-divider);
+    }
+
+    &__sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: var(--wp--preset--spacing--lg);
+        min-height: calc(var(--wp--preset--spacing--2-xl) * 3);
+        padding-right: var(--wp--preset--spacing--md);
+        border-right: 1px solid var(--wp--custom--color--header-divider);
+    }
+
+    &__tabs,
+    &__links {
+        @include list-reset;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--wp--preset--spacing--2-xs);
+    }
+
+    &__links {
+        margin-top: auto;
+    }
+
+    &__tab {
+        @include button-reset;
+        @extend %mega-menu-link;
+        display: inline-block;
+        font-weight: 600;
+        text-align: left;
+
+        &[aria-selected='true'] {
+            text-decoration: underline;
+        }
+    }
+
+    &__link {
+        @extend %mega-menu-link;
+        font-weight: 600;
+    }
+
+    &__panel {
+        display: grid;
+        grid-column: span $mega-menu-tracks;
+        grid-template-columns: repeat($mega-menu-tracks, minmax(0, 1fr));
+        align-items: start;
+        gap: var(--wp--preset--spacing--md);
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    &__lists {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        gap: var(--wp--preset--spacing--lg) var(--wp--preset--spacing--md);
+    }
+
+    &__media {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat($mega-menu-tracks, minmax(0, 1fr));
+        gap: var(--wp--preset--spacing--md);
+    }
+
+    @for $i from 1 through $mega-menu-tracks - 1 {
+        &__panel--media-#{$i} &__lists {
+            grid-row: 1;
+            grid-column: 1 / span #{$mega-menu-tracks - $i};
+        }
+
+        &__panel--media-#{$i} &__media {
+            grid-row: 1;
+            grid-column: span #{$i} / -1;
+            grid-template-columns: repeat($i, minmax(0, 1fr));
+        }
+    }
+}
+
+.mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--wp--preset--spacing--2-xs);
+
+    &__title {
+        @extend %mega-menu-link;
+        color: var(--wp--preset--color--primary);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--wp--preset--color--primary);
+        }
+    }
+
+    &__list {
+        @include list-reset;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        @extend %mega-menu-link;
+    }
+
+    &__more {
+        @extend %mega-menu-link;
+        text-decoration: underline;
+    }
+}
+
+.mega-menu-card {
+    @extend %mega-menu-link;
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--xs);
+
+    &__media {
+        display: block;
+        aspect-ratio: 6 / 5;
+        overflow: hidden;
+        background-color: var(--wp--preset--color--secondary);
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: var(--wp--preset--spacing--xs);
+        padding-bottom: var(--wp--preset--spacing--xs);
+        border-bottom: 1px solid var(--wp--custom--color--header-divider);
+    }
+
+    &__more {
+        flex-shrink: 0;
+        text-decoration: underline;
+    }
+}

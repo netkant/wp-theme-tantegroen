@@ -1,0 +1,480 @@
+{
+    "key": "group_tg_mega_menu",
+    "title": "Mega menu",
+    "fields": [
+        {
+            "key": "field_tg_mm_tab_tabs",
+            "label": "Faner",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_tg_mm_tabs",
+            "label": "Faner",
+            "name": "tabs",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Fanerne i venstre kolonne. Hver fane har sine egne kolonner.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_tg_mm_tab_label",
+            "button_label": "Tilføj fane",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_tg_mm_tab_label",
+                    "label": "Fanetitel",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "Strikkekits efter kategori",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_tg_mm_tabs"
+                },
+                {
+                    "key": "field_tg_mm_tab_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Valgfrit. Gør fanetitlen klikbar.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_tg_mm_tabs"
+                },
+                {
+                    "key": "field_tg_mm_columns",
+                    "label": "Kolonner",
+                    "name": "columns",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Kategori, attribut og tag viser automatisk produkter under titlen. Billedblokke vises til højre.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_tg_mm_col_type",
+                    "button_label": "Tilføj kolonne",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_tg_mm_tabs",
+                    "sub_fields": [
+                        {
+                            "key": "field_tg_mm_col_type",
+                            "label": "Type",
+                            "name": "type",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "category": "Produktkategori",
+                                "attribute": "Produktattribut",
+                                "tag": "Produkttag",
+                                "image": "Billedblok"
+                            },
+                            "default_value": "category",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal",
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_category",
+                            "label": "Kategori",
+                            "name": "category",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "==",
+                                        "value": "category"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "product_cat",
+                            "add_term": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": [],
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_attribute_term",
+                            "label": "Attribut",
+                            "name": "attribute_term",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Valgmulighederne hentes automatisk fra WooCommerce-attributterne.",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "==",
+                                        "value": "attribute"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": [],
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0,
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_tag",
+                            "label": "Tag",
+                            "name": "tag",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "==",
+                                        "value": "tag"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "product_tag",
+                            "add_term": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": [],
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_title",
+                            "label": "Titel",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Valgfri. Standard er navnet på kategorien, attributten eller tagget.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "!=",
+                                        "value": "image"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_limit",
+                            "label": "Antal produkter",
+                            "name": "limit",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "!=",
+                                        "value": "image"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 4,
+                            "min": 1,
+                            "max": 20,
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "step": 1,
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_image",
+                            "label": "Billede",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "==",
+                                        "value": "image"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium",
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_text",
+                            "label": "Tekst",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Vises under billedet til venstre.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "==",
+                                        "value": "image"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "Guide til at vælge størrelse",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_tg_mm_columns"
+                        },
+                        {
+                            "key": "field_tg_mm_col_link",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Linkteksten vises under billedet til højre, fx \"Læs mere\".",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_tg_mm_col_type",
+                                        "operator": "==",
+                                        "value": "image"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "34",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "allow_in_bindings": 0,
+                            "parent_repeater": "field_tg_mm_columns"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_tg_mm_tab_links",
+            "label": "Ekstra links",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_tg_mm_links",
+            "label": "Ekstra links",
+            "name": "links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Vises nederst i venstre kolonne under fanerne, fx \"Nyheder\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Tilføj link",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_tg_mm_links_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_tg_mm_links"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tg_mega_menu"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Faner, kolonner og ekstra links for en mega menu.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793881200
+}

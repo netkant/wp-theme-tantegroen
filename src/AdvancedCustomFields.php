@@ -30,7 +30,9 @@ class AdvancedCustomFields extends Feature {
 	 * @var array<int|string, mixed>
 	 */
 	protected $filters = array(
-		'acf/json/load_paths' => 'add_acf_json_load_paths',
+		'acf/json/load_paths'                         => 'add_acf_json_load_paths',
+		'acf/settings/save_json/type=acf-field-group' => 'get_field_groups_save_path',
+		'acf/settings/save_json/type=acf-post-type'   => 'get_post_types_save_path',
 	);
 
 	/**
@@ -154,5 +156,23 @@ class AdvancedCustomFields extends Feature {
 		$paths[] = self::get_theme_dir() . 'assets/acf/post-types';
 
 		return $paths;
+	}
+
+	/**
+	 * Saves field group JSON to the theme.
+	 *
+	 * @return string
+	 */
+	public function get_field_groups_save_path() {
+		return self::get_theme_dir() . 'assets/acf/field-groups';
+	}
+
+	/**
+	 * Saves post type JSON to the theme.
+	 *
+	 * @return string
+	 */
+	public function get_post_types_save_path() {
+		return self::get_theme_dir() . 'assets/acf/post-types';
 	}
 }

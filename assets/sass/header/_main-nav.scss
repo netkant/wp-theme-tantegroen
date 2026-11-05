@@ -36,7 +36,8 @@
         }
     }
 
-    &__item--current > &__link {
+    &__item--current > &__link,
+    &__item--open > &__link {
         border-bottom-color: currentColor;
     }
 }

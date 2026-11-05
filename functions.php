@@ -10,6 +10,7 @@ use Urlund\WordPress\Updater\GitHubThemeRepository;
 use TanteGroen\Theme;
 use TanteGroen\NavMenus;
 use TanteGroen\Header;
+use TanteGroen\MegaMenu;
 use TanteGroen\AdvancedCustomFields;
 use TanteGroen\BlockCategories;
 use TanteGroen\AllowedBlocks;
@@ -44,6 +45,7 @@ Feature::bootstrap(
 		Theme::class,
 		NavMenus::class,
 		Header::class,
+		MegaMenu::class,
 		AdvancedCustomFields::class,
 		BlockCategories::class,
 		AllowedBlocks::class,
