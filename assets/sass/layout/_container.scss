@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+.container {
+    width: 100%;
+    padding-inline: var(--wp--preset--spacing--sm);
+
+    @include mq($bp-md) {
+        padding-inline: var(--wp--preset--spacing--md);
+    }
+
+    @include mq($bp-lg) {
+        padding-inline: var(--wp--preset--spacing--xl);
+    }
+
+    &__inner {
+        max-width: var(--wp--custom--layout--container);
+        margin-inline: auto;
+    }
+}

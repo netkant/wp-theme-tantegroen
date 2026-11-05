@@ -126,6 +126,12 @@
 			],
 			"fontSizes": [
 				{
+					"slug": "x-small",
+					"name": "Navigation",
+					"size": "12px",
+					"fluid": false
+				},
+				{
 					"slug": "usp",
 					"name": "USP",
 					"size": "14px",
@@ -230,7 +236,12 @@
 				"button-primary-bg": "var(--wp--preset--color--primary)",
 				"button-primary-text": "var(--wp--preset--color--text-secondary)",
 				"button-secondary-border": "var(--wp--preset--color--text-extra)",
-				"button-secondary-text": "var(--wp--preset--color--text)"
+				"button-secondary-text": "var(--wp--preset--color--text)",
+				"header-bg": "var(--wp--preset--color--background)",
+				"header-text": "var(--wp--preset--color--text)",
+				"top-bar-bg": "var(--wp--preset--color--primary)",
+				"top-bar-text": "var(--wp--preset--color--background)",
+				"header-divider": "var(--wp--preset--color--text-extra)"
 			},
 			"typography": {
 				"heading": "var(--wp--preset--font-family--times-new-roman)",
@@ -242,7 +253,8 @@
 			"layout": {
 				"content": "720px",
 				"wide": "1820px",
-				"page-margin": "50px"
+				"page-margin": "50px",
+				"container": "1920px"
 			}
 		}
 	},

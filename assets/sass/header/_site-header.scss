@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.site-header {
+    background-color: var(--wp--custom--color--header-bg);
+    color: var(--wp--custom--color--header-text);
+
+    &__skip-link {
+        @include visually-hidden;
+
+        &:focus {
+            position: fixed;
+            top: var(--wp--preset--spacing--xs);
+            left: var(--wp--preset--spacing--xs);
+            z-index: 1001;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: var(--wp--preset--spacing--xs) var(--wp--preset--spacing--sm);
+            clip: auto;
+            background-color: var(--wp--custom--color--header-bg);
+            color: var(--wp--custom--color--header-text);
+            font-size: var(--wp--preset--font-size--usp);
+        }
+    }
+}

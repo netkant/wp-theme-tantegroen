@@ -14,8 +14,11 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="site-header__skip-link" href="#main"><?php esc_html_e( 'Gå til indhold', 'tg' ); ?></a>
+
 <header class="site-header">
-	<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<?php bloginfo( 'name' ); ?>
-	</a>
+	<?php get_template_part( 'template-parts/header/top-bar' ); ?>
+	<?php get_template_part( 'template-parts/header/navbar' ); ?>
 </header>
+
+<?php get_template_part( 'template-parts/header/mobile-drawer' ); ?>

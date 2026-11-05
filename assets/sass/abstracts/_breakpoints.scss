@@ -1,0 +1,10 @@
+$bp-md: 48rem;
+$bp-lg: 64rem;
+$bp-xl: 90rem;
+
+// Mobile-first media query.
+@mixin mq($min-width) {
+    @media (min-width: $min-width) {
+        @content;
+    }
+}

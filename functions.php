@@ -8,9 +8,14 @@
 use Urlund\WordPress\Feature;
 use Urlund\WordPress\Updater\GitHubThemeRepository;
 use TanteGroen\Theme;
+use TanteGroen\NavMenus;
+use TanteGroen\Header;
 use TanteGroen\AdvancedCustomFields;
 use TanteGroen\BlockCategories;
 use TanteGroen\AllowedBlocks;
+use TanteGroen\WooCommerce\ProductCategory\CategoryArchiveHeader;
+use TanteGroen\WooCommerce\ProductCategory\CategoryGridHeader;
+use TanteGroen\WooCommerce\ProductLoop\ProductCard;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -37,8 +42,13 @@ GitHubThemeRepository::getInstance(
 Feature::bootstrap(
 	array(
 		Theme::class,
+		NavMenus::class,
+		Header::class,
 		AdvancedCustomFields::class,
 		BlockCategories::class,
 		AllowedBlocks::class,
+		CategoryArchiveHeader::class,
+		CategoryGridHeader::class,
+		ProductCard::class,
 	)
 );

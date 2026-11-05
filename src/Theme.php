@@ -43,6 +43,13 @@ class Theme extends Feature {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support(
+			'custom-logo',
+			array(
+				'flex-width'  => true,
+				'flex-height' => true,
+			)
+		);
+		add_theme_support(
 			'html5',
 			array(
 				'search-form',
@@ -57,6 +64,7 @@ class Theme extends Feature {
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'editor-styles' );
 		add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'woocommerce' );
 	}
 
 	/**

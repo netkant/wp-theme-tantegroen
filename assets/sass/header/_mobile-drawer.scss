@@ -1,0 +1,144 @@
+@use '../abstracts' as *;
+
+.has-drawer-open {
+    overflow: hidden;
+}
+
+.mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &__backdrop {
+        position: absolute;
+        inset: 0;
+        background-color: color-mix(in srgb, var(--wp--custom--color--header-text) 40%, transparent);
+    }
+
+    &__panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--wp--preset--spacing--md);
+        width: 100%;
+        padding: var(--wp--preset--spacing--md);
+        overflow-y: auto;
+        background-color: var(--wp--custom--color--header-bg);
+        color: var(--wp--custom--color--header-text);
+
+        @include mq($bp-md) {
+            max-width: 25rem;
+        }
+    }
+
+    &__close {
+        @include button-reset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        width: var(--wp--preset--spacing--md);
+        height: var(--wp--preset--spacing--md);
+        background-color: var(--wp--custom--color--secondary);
+        color: var(--wp--custom--color--header-text);
+    }
+
+    &__close-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &__close-label {
+        @include visually-hidden;
+    }
+}
+
+.drawer-nav {
+    &__list {
+        @include list-reset;
+    }
+
+    &__item {
+        border-bottom: 1px solid var(--wp--custom--color--header-divider);
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--wp--preset--spacing--sm);
+        padding-block: var(--wp--preset--spacing--md);
+        color: var(--wp--custom--color--header-text);
+        font-family: var(--wp--custom--typography--body);
+        font-size: 0.875rem;
+        line-height: 1.4;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--wp--custom--color--primary);
+            text-decoration: none;
+        }
+    }
+
+    &__chevron {
+        display: none;
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    &__item--has-children > &__link &__chevron {
+        display: block;
+    }
+}
+
+.drawer-help {
+    padding-top: var(--wp--preset--spacing--md);
+
+    &__title {
+        margin: 0 0 var(--wp--preset--spacing--sm);
+        color: var(--wp--custom--color--primary);
+        font-family: var(--wp--custom--typography--body);
+        font-size: var(--wp--preset--font-size--usp);
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        @include list-reset;
+        display: flex;
+        flex-direction: column;
+        gap: var(--wp--preset--spacing--sm);
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: var(--wp--preset--spacing--xs);
+        color: var(--wp--custom--color--header-text);
+        font-family: var(--wp--custom--typography--body);
+        font-size: 0.875rem;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--wp--custom--color--primary);
+            text-decoration: underline;
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}

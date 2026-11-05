@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.main-nav {
+    &__list {
+        @include list-reset;
+        display: flex;
+        align-items: center;
+        gap: var(--wp--preset--spacing--xs);
+
+        @include mq($bp-xl) {
+            gap: var(--wp--preset--spacing--lg);
+        }
+    }
+
+    &__link {
+        display: block;
+        padding-block: var(--wp--preset--spacing--2-xs);
+        border-bottom: 1px solid transparent;
+        color: var(--wp--custom--color--header-text);
+        font-family: var(--wp--custom--typography--body);
+        font-size: var(--wp--preset--font-size--x-small);
+        line-height: 1.4;
+        letter-spacing: 0.105rem;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        @include mq($bp-xl) {
+            padding-inline: var(--wp--preset--spacing--2-xs);
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-bottom-color: currentColor;
+            color: var(--wp--custom--color--header-text);
+            text-decoration: none;
+        }
+    }
+
+    &__item--current > &__link {
+        border-bottom-color: currentColor;
+    }
+}

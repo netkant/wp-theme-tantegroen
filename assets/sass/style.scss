@@ -2,6 +2,10 @@
  * Styles for the WordPress Theme Boilerplate.
  */
 
+@use 'base';
+@use 'layout';
+@use 'header';
+
 body {
-    background-color: #f00;
+    background-color: #F4F2EA;
 }
