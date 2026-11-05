@@ -104,8 +104,17 @@ class Theme extends Feature {
 		$scripts = apply_filters(
 			'tg_enqueue_scripts',
 			array(
-				'tg-main' => array(
-					'relative_path' => '/assets/js/main.js',
+				'tg-mobile-drawer' => array(
+					'relative_path' => '/assets/js/header/mobile-drawer.js',
+				),
+				'tg-drawer-levels' => array(
+					'relative_path' => '/assets/js/header/drawer-levels.js',
+				),
+				'tg-header-search' => array(
+					'relative_path' => '/assets/js/header/header-search.js',
+				),
+				'tg-mega-menu'     => array(
+					'relative_path' => '/assets/js/header/mega-menu.js',
 				),
 			)
 		);
